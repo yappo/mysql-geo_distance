@@ -1,0 +1,18 @@
+INSTALL
+
+$ git clone git://github.com/yappo/mysql-geo_distance.git
+$ cd mysql-geo_distance
+$ g++ -shared -fPIC -Wall -g mysql_geo_distance.cc -o mysql_geo_distance.so
+$ sudo cp mysql_geo_distance.so /foo/bar/lib/mysql/plugin/
+$ mysql -uroot
+mysql> create function geo_distance returns real soname 'mysql_geo_distance.so';
+
+USAGE
+
+  SELECT geo_distance(35.6130752, 140.118231, 35.612956, 140.118685) AS distance;
+
+SEE ALSO
+
+AUTHOR
+
+  Kazuhiro Osawa

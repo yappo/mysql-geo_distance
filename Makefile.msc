@@ -1,0 +1,7 @@
+all: mysql_geo_distance.dll
+
+mysql_geo_distance.dll : mysql_geo_distance.obj
+	link -dll mysql_geo_distance.obj user32.lib
+
+mysql_geo_distance.obj : mysql_geo_distance.cc
+	cl -EHsc -DMYSQL_DYNAMIC_PLUGIN -c -I. -Ic:/progra~1/mysql/mysqls~1.5/include mysql_geo_distance.cc
